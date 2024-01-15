@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Cycle</title>
+    <link rel="icon" href="../Assets/icon2.png" type="image/png">
+    <style>
+        /* Add your custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            background-image: url('../Assets/Bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            background-color: #007acc;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            background-image: url('../Assets/Banner.png');
+            background-size: cover;
+            /* This property determines how the background image should be sized */
+            background-position: center;
+            /* Center the background image */
+        }
+
+
+        footer {
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        h1 {
+            color: #000080;
+            text-align: center;
+        }
+
+        h2 {
+            color: #007acc;
+            text-align: center;
+        }
+
+        h3{
+            color:#000080
+        }
+
+        .experiment-section {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .experiment-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007acc;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .arrow {
+            font-size: 24px;
+            transition: transform 0.3s;
+            transform: rotate(0deg);
+        }
+
+        .experiment-content {
+            display: none;
+            padding-top: 10px;
+        }
+
+
+
+        .project-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007acc;
+        }
+
+        .project-description {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .project-image {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Celebrating Priyanka's Birthday!!</h1>
+        <h3>Happy birthday Maa!!</h3>
+    </header>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="./Screens/media.html">Wishes</a>
+    </nav>
+    <div class="container">
+        <h2>Some Pics</h2>
+        <div class="experiment-section" id="section1">
+            <div class="experiment-title" onclick="toggleSection(1)">
+                Some Childhood Pics
+                <span class="arrow">&#x25B6;</span>
+            </div>
+            <div class="experiment-content">
+                <div class="project-card">
+                    <img class="project-image" src="../Assets/riyal/p.jpg" alt="Childhood Images0">
+                    <img class="project-image" src="../Assets/riyal/ls.jpg" alt="Childhood Images1">
+                    <p class="project-description">
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="experiment-section" id="section2">
+            <div class="experiment-title" onclick="toggleSection(2)">
+                Some Teenage Pics
+                <span class="arrow">&#x25B6;</span>
+            </div>
+            <div class="experiment-content">
+                <div class="project-card">
+                    <img class="project-image" src="../Assets/riyal/p.jpg" alt="Teenage Images0">
+                    <img class="project-image" src="../Assets/riyal/ls.jpg" alt="Teenage Images1">
+                    <p class="project-description">
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="experiment-section" id="section3">
+            <div class="experiment-title" onclick="toggleSection(3)">
+                Some Adulthood Pics
+                <span class="arrow">&#x25B6;</span>
+            </div>
+            <div class="experiment-content">
+                <div class="project-card">
+                    <img class="project-image" src="../Assets/riyal/p.jpg" alt="Adult Images0">
+                    <img class="project-image" src="../Assets/riyal/ls.jpg" alt="Adult Images1">
+                    <p class="project-description">
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <h5> Made By ❤️ for maa.</h5>
+        </div>
+    </footer>
+
+    <script>
+        let currentSection = null;
+
+        function toggleSection(sectionNumber) {
+            const section = document.getElementById(`section${sectionNumber}`);
+            const arrow = section.querySelector('.arrow');
+
+            if (section === currentSection) {
+                // If clicking on the currently open section, close it
+                section.querySelector('.experiment-content').style.display = 'none';
+                arrow.style.transform = 'rotate(0deg)';
+                currentSection = null;
+            } else {
+                // Close the previously open section (if any)
+                if (currentSection !== null) {
+                    currentSection.querySelector('.experiment-content').style.display = 'none';
+                    currentSection.querySelector('.arrow').style.transform = 'rotate(0deg)';
+                }
+                // Open the clicked section
+                section.querySelector('.experiment-content').style.display = 'block';
+                arrow.style.transform = 'rotate(90deg)';
+                currentSection = section;
+            }
+        }
+    </script>
+</body>
+
+</html>
